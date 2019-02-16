@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: blog
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blog
+    spec:
+      containers:
+      - image: ghost:2.6-alpine
+        imagePullPolicy: Always
+        name: blog
+        ports:
+        - containerPort: 2368
